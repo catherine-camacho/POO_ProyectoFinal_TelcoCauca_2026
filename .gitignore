@@ -1,0 +1,7 @@
+*.exe
+*.o
+*.zpj.bak
+*.zpr.bak
+.zinjal/
+Debug/
+Release/
