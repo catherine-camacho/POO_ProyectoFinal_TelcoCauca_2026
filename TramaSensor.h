@@ -13,6 +13,5 @@ struct TramaSensor {
 };
 #pragma pack(pop)       
 
-// Total esperado: 4 + 16 + 4 + 4 + 8 = 36 bytes
 
 #endif
