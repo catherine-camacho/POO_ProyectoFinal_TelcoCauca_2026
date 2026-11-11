@@ -16,7 +16,7 @@ Docente: Paola Andrea Bedoya Toro
 
 \- Catherine Camacho Chantre
 
-\- NOMBRE COMPLETO DE LA COMPAÑERA
+\- NOMBRE COMPLETO
 
 
 
