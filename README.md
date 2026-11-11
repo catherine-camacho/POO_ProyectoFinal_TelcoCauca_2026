@@ -1,8 +1,8 @@
-\# Proyecto Final TelcoCauca
+# Proyecto Final TelcoCauca
 
 
 
-\*\*Sistema Distribuido Concurrente de Monitoreo de Infraestructura de Telecomunicaciones e IoT\*\*
+**Sistema Distribuido Concurrente de Monitoreo de Infraestructura de Telecomunicaciones e IoT**
 
 
 
@@ -12,15 +12,15 @@ Docente: Paola Andrea Bedoya Toro
 
 
 
-\## Integrantes
+## Integrantes
 
-\- Catherine Camacho Chantre
+- Catherine Camacho Chantre
 
-\- NOMBRE COMPLETO
+- Estefania Cabrera Beltran 
 
 
 
-\## Descripcion del proyecto
+## Descripcion del proyecto
 
 El objetivo de este proyecto integrador es diseñar e implementar desde cero un Sistema Distribuido
 
@@ -36,25 +36,25 @@ red Cliente-Servidor con Sockets TCP/UDP.
 
 
 
-\## Modulos
+## Modulos
 
-1\. \*\*Modelado de Dominio e Infraestructura Fisica:\*\* Tecnico, Antena, Torre. Asociacion 1:1 y 1:N, declaracion adelantada class Antena;
+1. **Modelado de Dominio e Infraestructura Fisica:** Tecnico, Antena, Torre. Asociacion 1:1 y 1:N, declaracion adelantada class Antena;
 
-2\. \*\*Herencia Multiple y Excepciones:\*\* NodoRedInteligente deriva de DispositivoRed y SensorIoT. Operadores + y <<. ExcepcionNodoRed.
+2. **Herencia Multiple y Excepciones:** NodoRedInteligente deriva de DispositivoRed y SensorIoT. Operadores + y <<. ExcepcionNodoRed.
 
-3\. \*\*Polimorfismo e Interfaces Puras:\*\* DispositivoComunicacion (abstracta), ITransmisible, RouterWiFi, GatewayLoRa, SwitchFibra, vector polimorfico, override y guarda nullptr.
+3. **Polimorfismo e Interfaces Puras:** DispositivoComunicacion (abstracta), ITransmisible, RouterWiFi, GatewayLoRa, SwitchFibra, vector polimorfico, override y guarda nullptr.
 
-4\. \*\*Multihilo y Exclusion Mutua:\*\* MonitorRed con std::thread, std::ref, std::mutex y std::lock\_guard. Eventos de ingenieria 2027.
+4. **Multihilo y Exclusion Mutua:** MonitorRed con std::thread, std::ref, std::mutex y std::lock_guard. Eventos de ingenieria 2027.
 
-5\. \*\*Red Cliente-Servidor con Sockets:\*\* ServidorCentral (TCP), NodoEstacionBase (cliente), ServidorUDP/ClienteUDP con TramaSensor (#pragma pack(1)) y timeout.
+5. **Red Cliente-Servidor con Sockets:** ServidorCentral (TCP), NodoEstacionBase (cliente), ServidorUDP/ClienteUDP con TramaSensor (#pragma pack(1)) y timeout.
 
 
 
-\## Compilacion en Zinjai (Windows)
+## Compilacion en Zinjai (Windows)
 
-\- Herramientas de compilacion: mingw64-gcc7
+- Herramientas de compilacion: mingw64-gcc7
 
-\- Compilacion, parametros extra: -std=c++11 -pthread
+- Compilacion, parametros extra: -std=c++11 -pthread
 
-\- Enlazado, parametros extra: -pthread -lws2\_32
+- Enlazado, parametros extra: -pthread -lws2\_32
 
