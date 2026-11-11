@@ -13,9 +13,9 @@ public:
 	ServidorUDP(int _puerto);
 	~ServidorUDP();
 	
-	void iniciar();              
-	TramaSensor recibirTrama();  
-	void escuchar();             
+	void iniciar();
+	TramaSensor recibirTrama();
+	void escuchar();
 };
 
 class ClienteUDP {

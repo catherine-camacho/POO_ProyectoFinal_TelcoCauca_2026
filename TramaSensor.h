@@ -3,16 +3,15 @@
 
 #include <cstdint>
 
-#pragma pack(push, 1)   
+// #pragma pack(1): sin relleno (padding), la estructura mide exactamente 36 bytes
+#pragma pack(push, 1)
 struct TramaSensor {
-	uint32_t idEstacion;          
-	char tipoDispositivo[16];     
-	float temperatura;            
-	float humedad;                
-	uint64_t timestamp;          
+	uint32_t idEstacion;
+	char tipoDispositivo[16];
+	float temperatura;
+	float humedad;
+	uint64_t timestamp;
 };
-#pragma pack(pop)       
-
-// Total esperado: 4 + 16 + 4 + 4 + 8 = 36 bytes
+#pragma pack(pop)
 
 #endif

@@ -3,10 +3,11 @@
 
 #include <string>
 
+// Interfaz pura: solo metodos virtuales puros y sin atributos
 class ITransmisible {
 public:
 	virtual ~ITransmisible() = default;
-	virtual std::string serializar() const = 0;   
+	virtual std::string serializar() const = 0;
 };
 
 #endif

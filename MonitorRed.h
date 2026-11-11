@@ -8,7 +8,7 @@
 
 class MonitorRed {
 private:
-	std::mutex mtxContador;   
+	std::mutex mtxContador;
 public:
 	void supervisarDispositivo(const DispositivoComunicacion* dev, int& transmisionesExitosas);
 	

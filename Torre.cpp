@@ -1,11 +1,11 @@
 #include "Torre.h"
-#include "Antena.h"     
+#include "Antena.h"
 #include <iostream>
 
 Torre::Torre(int _id, std::string _ubicacion, double _altura)
 	: idTorre(_id), ubicacion(_ubicacion), alturaMetros(_altura) {}
 
-
+// Asociacion: la torre no hace delete de las antenas, solo vacia su lista
 Torre::~Torre() {
 	listaAntenas.clear();
 }

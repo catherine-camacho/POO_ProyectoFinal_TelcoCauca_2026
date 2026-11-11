@@ -4,14 +4,16 @@
 #include <string>
 #include <vector>
 
-class Antena;   // Declaracion adelantada: evita la inclusion ciclica
+// Declaracion adelantada: evita la inclusion ciclica entre Torre.h y Antena.h
+class Antena;
 
 class Torre {
 private:
 	int idTorre;
 	std::string ubicacion;
 	double alturaMetros;
-	std::vector<Antena*> listaAntenas;   // Asociacion 1:N
+	// Asociacion 1:N: una torre tiene varias antenas
+	std::vector<Antena*> listaAntenas;
 public:
 	Torre(int _id, std::string _ubicacion, double _altura);
 	~Torre();

@@ -4,7 +4,7 @@
 Antena::Antena(int _id, double _frecuencia, std::string _tecnologia)
 	: idAntena(_id), frecuenciaMHz(_frecuencia), tecnologia(_tecnologia),
 	responsableMantenimiento(nullptr) {}
-  
+
 Antena::~Antena() {}
 
 int Antena::getIdAntena() const { return idAntena; }

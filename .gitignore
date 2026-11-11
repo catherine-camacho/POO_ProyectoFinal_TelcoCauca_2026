@@ -1,5 +1,8 @@
 *.exe
+*.out
+*.dll
 *.o
+*.d
 *.zpj.bak
 *.zpr.bak
 .zinjal/

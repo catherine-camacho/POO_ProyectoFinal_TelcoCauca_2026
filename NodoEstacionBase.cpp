@@ -13,7 +13,6 @@ NodoEstacionBase::~NodoEstacionBase() {
 }
 
 void NodoEstacionBase::conectar() {
-
 	fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (fd == INVALID_SOCKET) {
 		throw ExcepcionSocket(nombre + ": fallo al crear socket");
@@ -24,7 +23,7 @@ void NodoEstacionBase::conectar() {
 	
 	servidor.sin_addr.s_addr = inet_addr(ipServidor.c_str());
 	
-
+	// Cliente TCP: connect() se conecta al servidor
 	if (connect(fd, (sockaddr*)&servidor, sizeof(servidor)) < 0) {
 		throw ExcepcionSocket(nombre + ": no se pudo conectar a "
 							  + ipServidor + ":" + std::to_string(puerto));
@@ -32,7 +31,6 @@ void NodoEstacionBase::conectar() {
 }
 
 void NodoEstacionBase::enviarTrama(const std::string& trama) {
-
 	if (send(fd, trama.c_str(), trama.size(), 0) < 0) {
 		throw ExcepcionSocket(nombre + ": error en send()");
 	}
@@ -54,13 +52,13 @@ void NodoEstacionBase::ejecutarSesion(const ITransmisible* datos) {
 			throw std::invalid_argument(nombre + ": no hay datos para transmitir (nullptr)");
 		}
 		conectar();
-		enviarTrama(datos->serializar());   
+		enviarTrama(datos->serializar());
 		registrarEventoSeguro("[Cliente " + nombre + "] Respuesta del servidor: " + recibirRespuesta());
 	}
-	catch (const ExcepcionSocket& e) {          
+	catch (const ExcepcionSocket& e) {
 		registrarEventoSeguro(std::string("[Cliente] ") + e.what());
 	}
-	catch (const std::exception& e) {           
+	catch (const std::exception& e) {
 		registrarEventoSeguro(std::string("[Cliente] Excepcion general: ") + e.what());
 	}
 	

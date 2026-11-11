@@ -8,8 +8,8 @@ private:
 	int frecuenciaMHz;
 public:
 	GatewayLoRa(std::string _ip, int _frecuencia);
-	void transmitir() const override;       
-	std::string serializar() const override; 
+	void transmitir() const override;
+	std::string serializar() const override;
 };
 
 #endif

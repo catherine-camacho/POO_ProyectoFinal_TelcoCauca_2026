@@ -8,8 +8,9 @@ class Antena {
 private:
 	int idAntena;
 	double frecuenciaMHz;
-	std::string tecnologia; //             
-	Tecnico* responsableMantenimiento;   
+	std::string tecnologia;
+	// Asociacion 1:1: cada antena tiene un tecnico responsable
+	Tecnico* responsableMantenimiento;
 public:
 	Antena(int _id, double _frecuencia, std::string _tecnologia);
 	~Antena();

@@ -8,8 +8,9 @@ private:
 	int canalesActivos;
 public:
 	RouterWiFi(std::string _ip, int _canales);
-	void transmitir() const override;        
-	std::string serializar() const override; 
+	// override: el compilador verifica que la firma coincida con la de la clase base
+	void transmitir() const override;
+	std::string serializar() const override;
 };
 
 #endif

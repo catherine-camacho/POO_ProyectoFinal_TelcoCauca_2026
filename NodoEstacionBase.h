@@ -13,13 +13,12 @@ private:
 	SOCKET fd;
 public:
 	NodoEstacionBase(std::string _nombre, std::string _ipServidor, int _puerto);
-	~NodoEstacionBase();   
+	~NodoEstacionBase();
 	
 	void conectar();
 	void enviarTrama(const std::string& trama);
 	std::string recibirRespuesta();
 	
-
 	void ejecutarSesion(const ITransmisible* datos);
 };
 

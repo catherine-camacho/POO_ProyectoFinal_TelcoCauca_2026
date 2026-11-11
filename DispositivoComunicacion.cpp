@@ -8,8 +8,11 @@ std::string DispositivoComunicacion::getIp() const { return ip; }
 std::string DispositivoComunicacion::getTipo() const { return tipo; }
 
 void procesarDispositivo(const DispositivoComunicacion* dev) {
+	// Guarda defensiva: se valida el puntero antes de usar dev->
 	if (dev == nullptr) {
 		throw std::invalid_argument("Puntero nulo detectado en el contenedor");
 	}
-	dev->transmitir();   
+	
+	// Invocacion polimorfica: se resuelve en tiempo de ejecucion con la vtable (ligadura dinamica)
+	dev->transmitir();
 }

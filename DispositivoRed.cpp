@@ -1,11 +1,11 @@
 #include "DispositivoRed.h"
-#include <stdexcept>
+#include "ExcepcionNodoRed.h"
 
 DispositivoRed::DispositivoRed(std::string _ip, std::string _mac, bool _estado)
 	: direccionIP(_ip), direccionMAC(_mac), estadoOperativo(_estado) {
-	
 	if (direccionIP.empty()) {
-		throw std::invalid_argument("La direccion IP no puede estar vacia");
+		throw ExcepcionNodoRed("Falla de IP: el nodo con MAC " + direccionMAC
+							   + " no tiene direccion IP");
 	}
 }
 

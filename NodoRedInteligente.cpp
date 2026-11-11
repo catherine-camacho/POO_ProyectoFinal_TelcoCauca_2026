@@ -13,7 +13,7 @@ NodoRedInteligente NodoRedInteligente::operator+(const NodoRedInteligente& otro)
 	if (direccionIP != otro.direccionIP) {
 		throw ExcepcionNodoRed("IP incompatibles: " + direccionIP + " y " + otro.direccionIP);
 	}
-	int idCombinado = idNodo * 100 + otro.idNodo;               
+	int idCombinado = idNodo * 100 + otro.idNodo;
 	int paquetesTotales = paquetesProcesados + otro.paquetesProcesados;
 	double lecturaPromedio = (valorLectura + otro.valorLectura) / 2.0;
 	

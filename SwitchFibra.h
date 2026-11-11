@@ -8,8 +8,8 @@ private:
 	int velocidadGbps;
 public:
 	SwitchFibra(std::string _ip, int _velocidad);
-	void transmitir() const override;        
-	std::string serializar() const override; 
+	void transmitir() const override;
+	std::string serializar() const override;
 };
 
 #endif

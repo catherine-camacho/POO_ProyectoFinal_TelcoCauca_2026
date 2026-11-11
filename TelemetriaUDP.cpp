@@ -2,7 +2,6 @@
 #include "ExcepcionRedUDP.h"
 #include "Consola.h"
 
-
 ServidorUDP::ServidorUDP(int _puerto) : puerto(_puerto), fd(INVALID_SOCKET) {}
 
 ServidorUDP::~ServidorUDP() {
@@ -12,7 +11,8 @@ ServidorUDP::~ServidorUDP() {
 }
 
 void ServidorUDP::iniciar() {
-	fd = socket(AF_INET, SOCK_DGRAM, 0);   
+	// UDP: socket de datagramas sin conexion (SOCK_DGRAM)
+	fd = socket(AF_INET, SOCK_DGRAM, 0);
 	if (fd == INVALID_SOCKET) {
 		throw ExcepcionRedUDP("Fallo al crear socket UDP", WSAGetLastError());
 	}
@@ -21,10 +21,10 @@ void ServidorUDP::iniciar() {
 	dir.sin_addr.s_addr = INADDR_ANY;
 	dir.sin_port = htons(puerto);
 	if (bind(fd, (sockaddr*)&dir, sizeof(dir)) < 0) {
-		throw ExcepcionRedUDP("Error en bind() UDP", WSAGetLastError());
+		throw ExcepcionRedUDP("Error en bind() UDP del puerto " + std::to_string(puerto), WSAGetLastError());
 	}
 	
-	
+	// Timeout con SO_RCVTIMEO: evita que el hilo quede bloqueado indefinidamente
 	DWORD tiempo = 3000;
 	setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tiempo, sizeof(tiempo));
 	
@@ -60,14 +60,13 @@ void ServidorUDP::escuchar() {
 								  + std::to_string(t.temperatura) + " C");
 		}
 	}
+	// El timeout se captura y el servidor sigue estable
 	catch (const ExcepcionRedUDP& e) {
-	
 		registrarEventoSeguro(std::string("[Servidor UDP] ") + e.what());
 		registrarEventoSeguro("[Servidor UDP] Tramas recibidas: " + std::to_string(recibidas)
 							  + ". El sistema sigue estable.");
 	}
 }
-
 
 ClienteUDP::ClienteUDP() {
 	fd = socket(AF_INET, SOCK_DGRAM, 0);
@@ -87,7 +86,6 @@ void ClienteUDP::enviarTrama(const TramaSensor& trama, const std::string& ipDest
 	destino.sin_family = AF_INET;
 	destino.sin_port = htons(puerto);
 	destino.sin_addr.s_addr = inet_addr(ipDestino.c_str());
-	
 	
 	int enviados = sendto(fd, reinterpret_cast<const char*>(&trama), sizeof(trama), 0,
 						  (sockaddr*)&destino, sizeof(destino));
